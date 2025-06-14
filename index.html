@@ -1,64 +1,263 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
-            color: #000000;
-            margin: 0;
-            padding: 0;
+        @font-face {
+            font-family: 'rocaone-blregular';
+            src: url('fonts/Roca One Black/roca_black-webfont.woff2') format('woff2'),
+                url('fonts/Roca One Black/roca_black-webfont.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+
         }
-        header {
+        .hero-container {
+            width: 100%;
+            height: 750px;
+            overflow: hidden;
+            position: relative;
+        }
+        .hero-image{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;         /* crop gambar sesuai ukuran container */
+            object-position: center -320px;      /* geser gambar agar bagian atas terlihat */
+            transition: transform 0.2s ease-out;
+        }
+        .hero-text{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: rgb(32, 55, 61);
+        }  
+        .hero-text h1 {
+            font-size: 50px;
+            margin: 0;
+            font-family: 'rocaone-blregular';
+        }
+        .hero-text p {
+            font-size: 15px;
+            margin: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .hero-button {
+            margin-top: 30px;
+        }
+        .hero-button button {
+            background-color: rgb(32, 55, 61);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px; 
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+
+        .hero-button button:hover {
+            background-color: #40444e;
+        }
+        section {
+            background-color: #f2f4fa;
+        }
+        .features {
             display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 40px;
-            padding: 10px 0 10px 10px;
-            background-color: #f1f6ed; /* Warna latar belakang header */
-            max-height: 50px; /* Batasi tinggi header */
-            overflow: hidden; /* Sembunyikan bagian logo yang lebih besar dari header */
-        }
-        .logo {
-            height: 115px; /* atur sesuai kebutuhan */
-        }
-        nav ul {
-            display: flex;
             align-items: center;
-            gap: 10px; /* jarak antar menu */
-            margin: 0;
-            padding: 0;
-            list-style: none;
+            margin-top: 50px;
         }
-        nav ul li {
-            display: inline;
+        .feature1 {
+            padding: 10px;
+            color: rgb(32, 55, 61);
+            text-align: center;
         }
-        li , a {
-            color: #000000;
-            display: inline;
-            margin-right: 20px;
-            text-decoration: none;
+        .feature1 h2 {
+            font-size: 28px;
+            font-family: 'DM Serif Text', serif;    
+        }
+        .feature1 p {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .slider-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 20px;
+            background: #f7f5ef;
+        }
+
+        .slider-container {
+            overflow: hidden;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slider-item {
+            min-width: 300px;
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            margin: 0 10px;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .slider-text {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .slider-text span {
+            background: #ffd966;
+            color: black;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            background: white;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
         }
     </style>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing testing</title>
+    <title>SEA Catering</title>
 </head>
 <body>
     <header>
-        <img src="Beige Modern Healthy Catering Logo.png" alt="Logo" class="logo">
+        <img src="photo/Beige Modern Healthy Catering Logo.png" alt="Logo" class="logo">
         <nav>
             <ul>
-                <li><a href="https://www.example.com">Home</a></li>
-                <li><a href="https://www.example.com/menu">Meal Plans</a></li>
-                <li><a href="https://www.example.com/subscription">Subcription</a></li>
-                <li><a href="https://www.example.com/contact">Contact Us</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/meal-plans.html">Meal Plans</a></li>
+                <li><a href="pages/subscription.html">Subscription</a></li>
+                <li><a href="pages/contact.html">Contact Us</a></li>
             </ul>
         </nav>
     </header>
-    <p>
-        Halo nama saya Bisma, ini adalah halaman HTML sederhana untuk testing.
-        <br>
-    </p>
+    <section>
+        <div class="hero-container">
+            <img src="photo/makanan1_2.jpg" alt="Healthy Meal" class="hero-image" id="parallaxImg">   
+            <div class="hero-text">
+                <h1>Healthy Meals, Anytime, <br>Anywhere</h1>
+                <p>Enjoy fresh, nutritious meals delivered to your door!</p>
+                <div class="hero-button">
+                    <button onclick="location.href='pages/meal-plans.html'">See Pricing & Plans</button>
+                </div>
+            </div> 
+        </div>
+        <div class="features">
+            <div class="feature1">
+                <h2>Turn the recipe into <i>your</i> masterpiece!</h2>
+                <p>Swap proteins, adjust portions, or mix in ready-made meals. Every week, the choice is yours.</p>
+                <section class ="slider-section">  
+                    <button class="slider-btn prev">&#10094;</button>
+                    <div class="slider-container">
+                        <div class="slider-track">
+                        <div class="slider-item" style="background-image: url('photo/Classics.jpg')">
+                            <div class="slider-text">
+                                <h2>CLASSIC</h2>
+                                <span>OUR MOST POPULAR PLAN</span>
+                            </div>
+                        </div>
+                        <div class="slider-item" style="background-image: url('photo/vegetarians-2.jpg')">
+                            <div class="slider-text">
+                                <h2>VEGGIE</h2>
+                                <span>& PLANT-BASED MEALS</span>
+                            </div>
+                        </div>
+                        <div class="slider-item" style="background-image: url('photo/pescatarians.jpg')">
+                            <div class="slider-text">
+                                <h2>PESCATARIAN</h2>
+                                <span>100% PLANT-BASED MEALS</span>
+                            </div>
+                        </div>
+                        <div class="slider-item" style="background-image: url('photo/Quick & Easy.jpg')">
+                            <div class="slider-text">
+                                <h2>QUICK & EASY</h2>
+                                <span>FOR LOW-CARB DIETS</span>
+                            </div>
+                        </div>
+                        <div class="slider-item" style="background-image: url('photo/Family Friendly.jpg')">
+                            <div class="slider-text">
+                                <h2>FAMILY FRIENDLY</h2>
+                                <span>FOR LOW-CARB DIETS</span>
+                            </div>
+                        </div>
+                        <div class="slider-item" style="background-image: url('photo/Fit & Wholesome.jpg')">
+                            <div class="slider-text">
+                                <h2>FIT & WHOLESOME</h2>
+                                <span>FOR LOW-CARB DIETS</span>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="slider-btn next">&#10095;</button>
+                </section>
+
+        </div>
+    </section>  
+    <footer>
+        <p>&copy; 2023 SEA Catering. All rights reserved.</p>
+    </footer>
+    <script>
+    window.addEventListener("scroll", function () {
+        const img = document.getElementById("parallaxImg");
+        const scrollY = window.scrollY;
+        img.style.transform = `translateY(${scrollY * 0.5}px)`; // gerak 20% dari scroll
+    });
+    const track = document.querySelector('.slider-track');
+    const prev = document.querySelector('.prev');
+    const next = document.querySelector('.next');
+
+    let currentIndex = 0;
+
+    next.addEventListener('click', () => {
+        const items = document.querySelectorAll('.slider-item');
+        if (currentIndex < items.length - 1) {
+        currentIndex++;
+        track.style.transform = `translateX(-${currentIndex * 320}px)`;
+        }
+    });
+
+    prev.addEventListener('click', () => {
+        if (currentIndex > 0) {
+        currentIndex--;
+        track.style.transform = `translateX(-${currentIndex * 320}px)`;
+        }
+    });
+</script>
 </body>
 </html>

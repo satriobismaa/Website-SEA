@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    padding: 10px 0 10px 10px;
+    background-color: #fafdfd; /* Warna latar belakang header */
+    max-height: 45px; /* Batasi tinggi header */
+    overflow: hidden; /* Sembunyikan bagian logo yang lebih besar dari header */
+    position: sticky;
+    top: 0; /* menempel di bagian atas */
+    z-index: 1000; /* Pastikan header tetap di atas konten lainnya */
+}
+.logo {
+    height: 115px; /* atur sesuai kebutuhan */
+}
+nav ul {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    height: 100%;
+}
+nav ul li a {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 50px 25px;
+    color: #272727;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    background-color: #E9F3F4;  /* Ganti warna latar belakang saat hover */
+    color: #000000;             /* (Opsional) ubah warna teks saat hover */
+}
