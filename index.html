@@ -16,16 +16,19 @@
         }
         .hero-container {
             width: 100%;
-            height: 750px;
+            height: 800px;
             overflow: hidden;
             position: relative;
         }
         .hero-image{
             width: 100%;
-            height: 100%;
+            height: 110%;
             object-fit: cover;         /* crop gambar sesuai ukuran container */
-            object-position: center -320px;      /* geser gambar agar bagian atas terlihat */
+            object-position: center -300px;      /* geser gambar agar bagian atas terlihat */
+            margin-top: -15px; /* geser gambar ke atas */
             transition: transform 0.2s ease-out;
+
+            
         }
         .hero-text{
             position: absolute;
@@ -68,29 +71,31 @@
         }
         .features {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             margin-top: 50px;
-        }
-        .feature1 {
             padding: 10px;
             color: rgb(32, 55, 61);
             text-align: center;
         }
-        .feature1 h2 {
+        
+        .feature1 h2, .feature2 h2 {
             font-size: 28px;
-            font-family: 'DM Serif Text', serif;    
+            font-family: 'DM Serif Text', serif;
+            margin-bottom: 10px;
         }
-        .feature1 p {
+        .feature1 p, .feature2 p {
             font-size: 15px;
             font-family: Arial, Helvetica, sans-serif;
         }
         .slider-section {
             position: relative;
-            width: 100%;
+            width: 85%;
+            max-width: 1200px;     /* opsional, biar gak terlalu lebar di layar besar */
+            margin: 0 auto;         /* ini yang bikin slider ke tengah */
             overflow: hidden;
             padding: 20px;
-            background: #f7f5ef;
+            background: #f2f4fa;
         }
 
         .slider-container {
@@ -103,23 +108,38 @@
         }
 
         .slider-item {
-            min-width: 300px;
-            height: 400px;
+            width: 250px;
+            height: 300px;
             background-size: cover;
             background-position: center;
-            border-radius: 10px;
+            border-radius: 7px;
             margin: 0 10px;
             position: relative;
             flex-shrink: 0;
+            text-align: left;
+            padding: 0px;
         }
-
+        .slider-item::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 40%; /* seberapa tinggi efek hitamnya */
+            width: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+            z-index: 1;
+            pointer-events: none; /* biar nggak ganggu klik */
+            border-radius: 7px;
+        }
         .slider-text {
             position: absolute;
             bottom: 20px;
             left: 20px;
             color: white;
             font-weight: bold;
-        }
+            font-family: Arial, Helvetica, sans-serif;
+            z-index: 2; /* pastikan teks di atas efek hitam */
+        }   
 
         .slider-text span {
             background: #ffd966;
@@ -127,29 +147,43 @@
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 14px;
+            position: left;
         }
 
         .slider-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            font-size: 28px;
+            font-size: 20px;
             background: white;
-            border: 2px solid #ccc;
+            border: 1px solid #a4a4a4;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 30px;
+            height: 30px;
             cursor: pointer;
             z-index: 10;
+            line-height: 27px;
         }
 
         .prev {
-            left: 10px;
+            left: 15px;
         }
 
         .next {
-            right: 10px;
+            right: 5px;
         }
+        .feature2-button {
+            background-color: rgb(32, 55, 61);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px; 
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            margin-top: 25px;
+        }   
     </style>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -181,6 +215,9 @@
         </div>
         <div class="features">
             <div class="feature1">
+                <h2>Dinner's easy as 1, 2, and 3</h2>
+            </div>
+            <div class="feature2">
                 <h2>Turn the recipe into <i>your</i> masterpiece!</h2>
                 <p>Swap proteins, adjust portions, or mix in ready-made meals. Every week, the choice is yours.</p>
                 <section class ="slider-section">  
@@ -202,19 +239,19 @@
                         <div class="slider-item" style="background-image: url('photo/pescatarians.jpg')">
                             <div class="slider-text">
                                 <h2>PESCATARIAN</h2>
-                                <span>100% PLANT-BASED MEALS</span>
+                                <span>SEAFOOD & VEGGIE MEALS</span>
                             </div>
                         </div>
                         <div class="slider-item" style="background-image: url('photo/Quick & Easy.jpg')">
                             <div class="slider-text">
                                 <h2>QUICK & EASY</h2>
-                                <span>FOR LOW-CARB DIETS</span>
+                                <span>FOR BUSY WEEKNIGHTS</span>
                             </div>
                         </div>
                         <div class="slider-item" style="background-image: url('photo/Family Friendly.jpg')">
                             <div class="slider-text">
                                 <h2>FAMILY FRIENDLY</h2>
-                                <span>FOR LOW-CARB DIETS</span>
+                                <span>KID-TESTED RECIPES</span>
                             </div>
                         </div>
                         <div class="slider-item" style="background-image: url('photo/Fit & Wholesome.jpg')">
@@ -226,6 +263,8 @@
                     </div>
                     <button class="slider-btn next">&#10095;</button>
                 </section>
+                <button class="feature2-button" onclick="location.href='pages/meal-plans.html'">Learn More</button>
+            </div>
 
         </div>
     </section>  
@@ -233,31 +272,47 @@
         <p>&copy; 2023 SEA Catering. All rights reserved.</p>
     </footer>
     <script>
-    window.addEventListener("scroll", function () {
-        const img = document.getElementById("parallaxImg");
-        const scrollY = window.scrollY;
-        img.style.transform = `translateY(${scrollY * 0.5}px)`; // gerak 20% dari scroll
-    });
-    const track = document.querySelector('.slider-track');
-    const prev = document.querySelector('.prev');
-    const next = document.querySelector('.next');
+        window.addEventListener("scroll", function () {
+            const img = document.getElementById("parallaxImg");
+            const container = document.querySelector(".hero-container");
+            const rect = container.getBoundingClientRect();
 
-    let currentIndex = 0;
+            if (rect.bottom > 0 && rect.top < window.innerHeight) {
+                const visible = Math.min(window.innerHeight, rect.bottom) - Math.max(0, rect.top);
+                const visibilityRatio = visible / rect.height;
+                const rawOffset = (1 - visibilityRatio) * 100;
+                const offset = Math.min(rawOffset, 50); // batas maksimal 50px
 
-    next.addEventListener('click', () => {
-        const items = document.querySelectorAll('.slider-item');
-        if (currentIndex < items.length - 1) {
-        currentIndex++;
-        track.style.transform = `translateX(-${currentIndex * 320}px)`;
-        }
-    });
+                img.style.transform = `translateY(${offset}px)`;
+            }
+        });
+        const track = document.querySelector('.slider-track');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+        const items = document.querySelectorAll(".slider-item");
+        const itemWidth = items[0].offsetWidth + 20; // lebar + margin kanan-kiri
+        window.addEventListener("load", () => {
+            track.style.width = `${itemWidth * items.length}px`;
+        });
+        let currentIndex = 0;
+        next.addEventListener('click', () => {
+            if(currentIndex == 2){
+                track.style.transform = `translateX(0px)`;
+                currentIndex = 0;
+                return;
+            }
+            if (currentIndex < items.length - 1) {
+                currentIndex++;
+                track.style.transform = `translateX(-${currentIndex * itemWidth }px)`;
+            }
+        });
 
-    prev.addEventListener('click', () => {
-        if (currentIndex > 0) {
-        currentIndex--;
-        track.style.transform = `translateX(-${currentIndex * 320}px)`;
-        }
-    });
-</script>
+        prev.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                track.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+            }
+        });
+    </script>
 </body>
 </html>
