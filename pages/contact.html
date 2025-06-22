@@ -2,11 +2,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .hero-container {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgb(32, 55, 61);
+        }
+        .hero-container h1 {
+            font-size: 36px;
+            font-family: 'DM Serif Text', serif;
+            text-align: center;
+        }
+        .term-and-conditions {
+            width: 1100px;
+            padding: 10px 30px 15px 30px;
+            background-color: #EFE9DE;
+            text-align: center;
+            margin:0 auto;
+            border-radius: 15px;
+            color: rgb(32, 55, 61);
+        }
+        .term-and-conditions h2 {
+            font-size: 24px;
+            margin: 15px 0;
+            font-family: 'DM Serif Text', serif;
+        }
+        .term-and-conditions p {
+            font-size: 14px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .contact-info {
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 15px;
+            color: rgb(32, 55, 61);
+        }
+        .phone-icon {
+            width: 200px;
+            height: 100px;
+            display: flex;
+            margin: 20px auto;
+        }
+    </style>
     <link rel="stylesheet" href="../style.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing testing</title>
+    <title>SEA Catering</title>
 </head>
+
 <body>
     <header>
         <img src="Beige Modern Healthy Catering Logo.png" alt="Logo" class="logo">
@@ -19,10 +67,21 @@
             </ul>
         </nav>
     </header>
-    <p>
-        Halo nama saya Bisma, ini adalah halaman HTML sederhana untuk testing.
-        <br>
-    </p>
+    <section>
+        <div class = hero-container>
+            <h1>Have a Question?</h1>
+        </div>
+        <div class="term-and-conditions">
+            <h2>Terms and Conditions</h2>
+            <p>By proceeding, you agree to our Terms and Conditions and our Privacy Policy, and also agree and acknowledge that your chats with us and data collected in them may be
+                viewed, used and saved by us and our third party vendors or agents to improve your experience and for customer service purposes. Please visit our Privacy Policy for further information.</p>
+        </div>
+        <div class="contact-info">
+            <img src="../photo/phone.png" alt="Phone Icon" class="phone-icon">
+            <h2>Contact Us</h2>
+            <p>0812-3456-789</p>
+        </div>
+    </section>
     <footer>
         <p>&copy; 2023 SEA Catering. All rights reserved.</p>
     </footer>

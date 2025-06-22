@@ -4,6 +4,7 @@ body {
     color: #000000;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 header {
     display: flex;
@@ -43,4 +44,12 @@ nav ul li a {
 nav ul li a:hover{
     background-color: #E9F3F4;  /* Ganti warna latar belakang saat hover */
     color: #000000;             /* (Opsional) ubah warna teks saat hover */
+}
+footer {
+    background-color: #fafdfd; /* Warna latar belakang footer */
+    color: #000000; /* Warna teks footer */
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
 }

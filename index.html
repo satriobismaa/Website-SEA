@@ -4,7 +4,7 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <style>
         @font-face {
             font-family: 'rocaone-blregular';
@@ -12,8 +12,9 @@
                 url('fonts/Roca One Black/roca_black-webfont.woff') format('woff');
             font-weight: normal;
             font-style: normal;
-
+        
         }
+
         .hero-container {
             width: 100%;
             height: 800px;
@@ -79,15 +80,136 @@
             text-align: center;
         }
         
-        .feature1 h2, .feature2 h2 {
-            font-size: 28px;
+        .feature1 h2, .feature2 h2 , .feature3 h2 , .feature4 h2 , .feature0 h2{
             font-family: 'DM Serif Text', serif;
-            margin-bottom: 10px;
+            font-size: 32px;
         }
-        .feature1 p, .feature2 p {
+        .feature1 h2{
+            margin-bottom: 45px;
+            
+        }
+        .feature2 h2, .feature3 h2, .feature4 h2 , .feature0 h2{
+            margin-bottom: 20px;
+        }
+        .feature1 p, .feature2 p, .feature3 p, .feature4 p , .feature0 p{
             font-size: 15px;
             font-family: Arial, Helvetica, sans-serif;
         }
+        .feature0 {
+            margin-bottom: 60px;
+        }
+        .feature0 p {
+            margin-bottom: 65px;
+        }
+        .feature0-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .description-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .description-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+        .description-item {
+            width: 1150px;
+            text-align: center;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 20px;
+            align-items: center; /* ⬅️ ini yang bikin teks di tengah secara vertikal */
+            height: 270px; /* Tambahkan tinggi tetap untuk kontainer */
+        }
+        .description-photo {
+            width: 500px;
+            height: 250px;
+            object-fit: cover; /* crop gambar sesuai ukuran container */
+            border-radius: 15px;
+        }
+        .description-text{
+            width: 500px;
+            height: 250px;
+            color: rgb(32, 55, 61);
+            margin-right: 30px;
+            margin-left: 30px;
+        }
+        .description-text h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            font-family: 'DM Serif Text', serif;
+        }
+        .description-text p {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+        }
+        .description-item:nth-child(even) {
+            flex-direction: row-reverse;
+            text-align: right;
+        }
+        .description-item:nth-child(odd){
+            flex-direction: row;
+            text-align: left;
+        }
+        .feature1 {
+            margin-bottom: 50px;
+        }
+        .step-container {
+            display: flex;
+            position: relative;
+            margin-top: 20px;
+            flex-direction: row;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 60px
+        }
+        .step1, .step2, .step3 {
+            width: 300px;
+            text-align: center;
+            padding: 10px;
+            margin: 0;
+            padding: 0;
+        }
+        .step1 h3, .step2 h3, .step3 h3 {
+            margin-bottom: 0; /* Hilangkan jarak bawah judul */
+            font-size: 14px;
+        }
+
+        .step1 p, .step2 p, .step3 p {
+            margin-top: 5px; /* Hilangkan jarak atas paragraf */
+            font-size: 13px;
+        }
+        .step-image {
+            width: 330px;
+            height: 205px;
+            flex-shrink: 0;
+            object-fit: cover; /* ini yang penting */
+
+        }
+        .feature2-button, .feature1-button , .feature3-button {
+            background-color: rgb(32, 55, 61);
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px; 
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+            margin-top: 25px;
+            margin-bottom: 60px;
+        } 
         .slider-section {
             position: relative;
             width: 85%;
@@ -134,20 +256,26 @@
         .slider-text {
             position: absolute;
             bottom: 20px;
-            left: 20px;
+            left: 15px;
             color: white;
             font-weight: bold;
             font-family: Arial, Helvetica, sans-serif;
             z-index: 2; /* pastikan teks di atas efek hitam */
         }   
-
+        .slider-text h2 {
+            margin-bottom: 5px;
+            font-size: 30px;
+            font-family: "Roboto", sans-serif;
+            
+        }   
         .slider-text span {
             background: #ffd966;
             color: black;
-            padding: 5px 10px;
+            padding: 3px 10px;
             border-radius: 5px;
-            font-size: 14px;
+            font-size: 13px;
             position: left;
+            margin: 0px
         }
 
         .slider-btn {
@@ -172,18 +300,112 @@
         .next {
             right: 5px;
         }
-        .feature2-button {
-            background-color: rgb(32, 55, 61);
-            color: white;
-            padding: 13px 25px;
-            border-radius: 7px; 
-            border: none;
+        .feature3 , .feature4 {
+            margin: 60px 0;
+            text-align: center;
+            padding: 0 20px;
+        }
+        .feature3-image {
+            width: 900px;
+            height: 500px;
+            overflow: hidden; /* wajib untuk cropping gambar yang diperbesar */
+            position: relative;
+            margin-top: 30px;
+            border-radius: 8px;
+        }
+        .delivery-map {
+            width: 115%;        /* zoom horizontal */
+            height: 115%;       /* zoom vertical */
+            object-fit: cover;  /* biar tetap proporsional */
+            object-position: center 130%; /* geser titik fokus gambar ke atas */
+        }
+        .feature3-image span {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: #ffd966;
+            color: black;
+            padding: 2px 5px;
+            font-size: 13px;
             font-weight: bold;
-            font-size: 16px;
             font-family: Arial, Helvetica, sans-serif;
-            cursor: pointer;
-            margin-top: 25px;
+            z-index: 2; /* pastikan teks di atas gambar */
+        }
+        .feature3-image .province1 {
+            top: 80%;    /*Jakarta*/  
+            left: 28%;    
+        }
+        .feature3-image .province2 {
+            top: 87%;     /*Surabaya*/
+            left: 43.5%;     
+        }
+        .feature3-image .province3 {
+            top: 47%;     /*Medan*/
+            left: 12%;    
+        }
+        .feature3-image .province4 {
+            top: 83%;       /*Solo*/
+            left: 37%;     
+        }
+        .feature3-image .province5 {
+            top: 68%;       /*Palembang*/
+            left: 23%;     
+        }
+        .feature3-image .province6 {
+            top: 65%;       /*Balikpapan*/
+            left: 43%;     
+        }
+        .feature3-image .province7 {
+            top: 75%;       /*Makassar*/
+            left: 50%;     
+        }
+        .feature3-image .province8 {
+            top: 86%;       /*Bali*/
+            left: 50%;     
+        }
+        .feature3-button {
+            margin-bottom: 0;
+        }
+        .proof-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            margin-bottom: 60px;
+        }
+        .proof-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }  
+        .proof-item {
+            width: 210px;
+            height: 350px;
+            background-color: rgb(41, 41, 41);
+            padding: 0;
+            border-radius: 15px;
+            box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+            color: white;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .proof-image {
+            width: 230px;
+            height: 250px;
+            object-fit: cover;
+        }
+        .proof-text {
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0 10px 10px 10px;
         }   
+        .proof-text p {
+            font-size: 12px;
+        }
     </style>
     <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
@@ -214,8 +436,64 @@
             </div> 
         </div>
         <div class="features">
+            <div class="feature0">
+                <h2>Whatever your week looks like,<br>dinner’s covered.</h2>
+                <p>From quick-prep recipes to ready-made meals, SEA Catering gives you more<br>time, less stress, and better eating—night after night.</p>
+                <section class ="description-section">
+                    <div class="description-container">
+                        <div class="description-item" alt="Description 1">
+                            <div class ="description-photo">
+                                <img class="description-photo" src="photo/description-1.jpg" alt="Description 1">
+                            </div>
+                            <div class="description-text">
+                                <h3>We believe in making healthy eating accessible to everyone</h3>
+                                <p>Our mission is to provide delicious, nutritious meals that fit into your busy lifestyle.</p>
+
+                            </div>  
+                        </div>
+                        <div class="description-item">
+                            <div class ="description-photo">
+                                <img class="description-photo" src="photo/description-2.jpg" alt="Description 2">
+                            </div>
+                            <div class="description-text">
+                                <h3>We deliver fresh, pre-portioned ingredients to your door</h3>
+                                <p>Our meals are designed to be quick and easy to prepare, so you can enjoy delicious home-cooked meals without the hassle.</p>
+                            </div>  
+                        </div>  
+                        <div class="description-item">
+                            <div class ="description-photo">
+                                <img class="description-photo" src="photo/description-3.jpg" alt="Description 3">
+                            </div>
+                            <div class="description-text">
+                                <h3>We offer a variety of meal plans to suit your lifestyle</h3>
+                                <p>Whether you're looking for quick meals, family-friendly options, or vegetarian dishes, we have something for everyone.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
             <div class="feature1">
                 <h2>Dinner's easy as 1, 2, and 3</h2>
+                <section class="step-section">
+                    <div class ="step-container">
+                        <div class="step1">
+                            <img src="photo/step-1.png" alt="step-1" class="step-image">
+                            <h3>1. Pick your meals</h3>
+                            <p>Browse and choose from 100+ chef-curated recipes and market add-ons each week.</p>
+                        </div>
+                        <div class="step2">
+                            <img src="photo/step-2 rev.png" alt="step-2" class="step-image">
+                            <h3>2. Cook with pre-portioned ingredients</h3>
+                            <p>Cook effortlessly with fresh pre-portioned ingredients and simple guides.</p>
+                        </div>
+                        <div class="step3">
+                            <img src="photo/step-3.jpg" alt="step-3" class="step-image">
+                            <h3>3. Enjoy delicious results</h3>
+                            <p>Savor restaurant-quality dishes made by you, with zero hassle.</p>
+                        </div>
+                    </div>
+                    <button class="feature1-button" onclick="location.href='pages/subscription.html'">See Pricing & Plans</button>
+                </section>
             </div>
             <div class="feature2">
                 <h2>Turn the recipe into <i>your</i> masterpiece!</h2>
@@ -263,9 +541,68 @@
                     </div>
                     <button class="slider-btn next">&#10095;</button>
                 </section>
-                <button class="feature2-button" onclick="location.href='pages/meal-plans.html'">Learn More</button>
+                <button class="feature2-button" onclick="location.href='pages/meal-plans.html'">See what's on the menu</button>
             </div>
-
+            <div class="feature3">
+                <h2>Delivering to major cities — and growing!</h2>
+                <p>We deliver to major cities across the country, ensuring you can enjoy our meals no matter where you are.</p>
+                <div class="feature3-image">
+                    <img class="delivery-map" src="photo/map.jpg" alt="Delivery Map">
+                    <span class="province1">Jakarta</span>
+                    <span class="province2">Surabaya</span>
+                    <span class="province3">Medan</span>
+                    <span class="province4">Solo </span>
+                    <span class="province5">Palembang</span>
+                    <span class="province6">Balikpapan</span>
+                    <span class="province7">Makassar</span>
+                    <span class="province8">Bali</span>
+                </div>
+                <button class="feature3-button" onclick="location.href='pages/subscription.html'">Learn More</button>
+                <p>Check our website to see if we deliver to your area.</p>
+            </div>
+            <div class="feature4">
+                <h2>Why millions love SEA Catering</h2>
+                <p>The proof is on the plate. See why home cooks like you keep coming back.</p>
+                <section class="proof-section">
+                    <div class="proof-container">
+                        <div class="proof-item">
+                            <img class="proof-image" src="photo/testimony-1.jpg" alt="Proof 1">
+                            <div class="proof-text">
+                                <p>"I love how easy it is to cook healthy meals with SEA Catering. The ingredients are always fresh!"</p>     
+                                <strong>- John, Bali</strong>
+                            </div>
+                        </div>
+                        <div class="proof-item">
+                            <img class="proof-image" src="photo/testimony-2.jpg" alt="Proof 2">
+                            <div class="proof-text">
+                                <p>"The variety of meals keeps me excited about cooking. I never get bored!"</p>     
+                                <strong>- Sarah, Jakarta</strong>
+                            </div>
+                        </div>
+                        <div class="proof-item">
+                            <img class="proof-image" src="photo/testimony-3.jpg" alt="Proof 3">
+                            <div class="proof-text">
+                                <p>"SEA Catering has made my weeknight dinners so much easier. I love the convenience!"</p>     
+                                <strong>- Mike, Surabaya</strong>
+                            </div>
+                        </div>
+                        <div class="proof-item">
+                            <img class="proof-image" src="photo/testimony-4.jpg" alt="Proof 4">
+                            <div class="proof-text          ">
+                                <p>"The meals are not only healthy but also delicious. I feel great after every meal!"</p>     
+                                <strong>- Lisa, Medan</strong>       
+                            </div>
+                        </div>
+                        <div class="proof-item">
+                            <img class="proof-image" src="photo/testimony-5.jpg" alt="Proof 5">
+                            <div class="proof-text      ">
+                                <p>"I appreciate the flexibility of choosing my meals. It fits perfectly into my busy lifestyle!"</p>     
+                                <strong>- David, Palembang</strong>     
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>  
         </div>
     </section>  
     <footer>
