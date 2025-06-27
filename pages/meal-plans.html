@@ -1,30 +1,643 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <link rel="stylesheet" href="../style.css">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Testing testing</title>
-</head>
-<body>
-    <header>
-        <img src="Beige Modern Healthy Catering Logo.png" alt="Logo" class="logo">
-        <nav>
-            <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="meal-plans.html">Meal Plans</a></li>
-                <li><a href="subscription.html">Subscription</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    <p>
-        Halo nama saya Bisma, ini adalah halaman HTML sederhana untuk testing.
-        <br>
-    </p>
-    <footer>
-        <p>&copy; 2023 SEA Catering. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <style>
+            @font-face {
+                font-family: 'rocaone-blregular';
+                src: url('../fonts/Roca One Black/roca_black-webfont.woff2') format('woff2'),
+                    url('../fonts/Roca One Black/roca_black-webfont.woff') format('woff');
+                font-weight: normal;
+                font-style: normal; 
+            }
+            .meal-plans{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                color: rgb(32, 55, 61);    
+            }
+            .meal-plans h1{
+                font-size: 36px;
+                font-family: 'DM Serif Text', serif;
+                text-align: center;
+                padding:30px 0 10px 0;
+                margin: 0;
+            }
+            .meal-plans p{
+                font-size: 16px;
+                font-family: 'helvetica', 'arial', sans-serif;
+                text-align: center;
+                padding: 0 20px 30px 20px;
+                margin: 0;
+            }
+            .item-catalog {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+                flex-wrap: wrap;
+                width: 1200px;
+                margin-bottom: 100px
+            }
+            .item-container,
+            .item-container-big {
+                box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+                transition: box-shadow 0.3s ease, transform 0.3s ease;
+                cursor: pointer;
+                overflow: hidden;
+                position: relative;
+            }
+            .item-container:hover,
+            .item-container-big:hover {
+                box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-5px);
+            }
+            .item-container {
+                width: 350px;
+                height: 350px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: white;
+            }
+
+            .featured-section {
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+                width: 100%;
+                flex-wrap: wrap;
+                margin-bottom: 0;
+                margin-left: 55px;
+            }
+
+            .small-items-wrapper {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+            }
+            .item-container-big {
+                width: 720px;
+                height: 720px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: white;
+                position: relative;
+            }
+            .meal-image {
+                width: 350px;
+                height: 210px;
+                object-fit: cover;
+            }
+            .meal-image-big {
+                width: 720px;
+                height: 450px;
+                object-fit: cover;
+            }
+            .featured-text {
+                position: absolute;
+                top: 259px;
+                left: 0;
+                color: white;
+                background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+                padding: 10px;
+                width: 97.25%;
+                font-family: "roboto", sans-serif;
+            }
+            .featured-text .stars {
+                font-size: 38px;
+                color: gold;
+                margin: 5px;
+                padding: 0;
+                text-align: left;
+            }
+
+            .featured-text h4 {
+                font-size: 24px;
+                margin: 7px ;
+                
+            }
+            .featured-text .quote {
+                font-size: 17px;
+                margin: 20px 5px 20px 5px;
+                font-style: italic;
+                padding:0;
+            }
+
+            .featured-text .author {
+                font-size: 0.8rem;
+                text-align: right;
+                margin: 5px;
+                padding: 0;
+            }
+            .badge {
+                display: inline-block;
+                color: white;
+                font-weight: bold;
+                font-family: 'Roboto', sans-serif;
+                border-radius: 5px;
+                letter-spacing: 0.5px;
+                margin: 10px 0 0 15px;
+                padding: 3px ;
+                font-size: 10px;
+            }
+            .badge.premium {
+                background-color: #2d2d2d; /* dark gray/black */
+                margin: 25px 0 10px 15px;
+                padding: 5px ;
+                font-size: 15px;
+            }
+            .badge.veggie {
+                background-color: #4CAF50; /* green */
+            }
+            .badge.new {
+                background-color: #FF9800; /* orange */
+            }
+            .badge.\32 0-min {
+                background-color: #2196F3; /* blue */
+            }
+            .badge.bestseller {
+                background-color: #FF5722; /* red */
+            }
+            .badge.big-batch-dinner {
+                background-color: #2d2d2d;
+            }
+            .item-container h2 {
+                font-size: 17.5px;
+                font-family: "roboto", sans-serif;
+                font-weight: 400;
+                margin: 3px 10px 3px 10px ;
+                padding : 2px 5px;
+                text-align: left;
+            }
+            .item-container h3 {
+                font-size: 14px;
+                font-family: "roboto", sans-serif;
+                font-weight: 400;
+                margin: 0 10px 10px 10px;
+                padding: 0 5px;
+                text-align: left;
+            }
+            .item-container-big h2 {
+                font-size: 28px;
+                font-family: "roboto", sans-serif;
+                font-weight: 700;
+                margin: 0px 10px 5px 10px ;
+                padding : 2px 5px;
+                text-align: left;
+            }   
+            .item-container-big h3 {
+                font-size: 20px;
+                font-family: "roboto", sans-serif;
+                font-weight: 400;
+                margin: 0 10px 10px 10px;
+                padding: 0 5px;
+                text-align: left;
+            }
+            .meal-tags {
+                display: flex;
+                flex-direction: row;
+                gap: 7px;
+                
+                font-family: "roboto", sans-serif;
+                flex-wrap: wrap;
+                font-size: 13px;
+                padding-left: 5px;
+            }
+            .meal-tags span {
+                color: #888;
+            }
+            .meal-tags.two{
+                margin: 10px;
+            }
+            .meal-tags.one {
+                margin: 25px 15px 10px 10px;
+            }
+            .meal-tags.featured {
+                margin:100px 15px 10px 10px;
+                padding-left: 10px;
+            }
+            .modal {
+                display: none; 
+                position: fixed;
+                z-index: 1000; 
+                left: 0; top: 0;
+                width: 100%; height: 100%;
+                background-color: rgba(0, 0, 0, 0.7); /* Latar gelap */
+            }
+
+            /* Isi konten modal */
+            .modal-content {
+                background-color: white;
+                margin: 3% auto;
+                border-radius: 12px;
+                height: 900px;
+                width: 800px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                color: rgb(32, 55, 61);
+            }
+            .modal-title-wrapper {
+                position: relative;
+                width: 800px;
+                height: 450px;
+                overflow: hidden;
+
+            }
+            .modal-img {
+                width: 800px;
+                height: 450px;
+                object-fit: cover;  
+                display: block;
+            }
+            .modal-title {
+                position: absolute;
+                top: 320px;
+                color: white;
+                background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+                padding: 10px;
+                width: 780px;
+                font-family: "roboto", sans-serif;
+                margin: 3% 0 0 0;
+            }
+            .modal-title h2, .modal-title h3{
+                font-weight: 400;
+            }
+            .modal-title h2{
+                padding: 15px 15px 0 15px;
+                margin: 0 0 10px 0;
+                font-size: 28px
+            }
+            .modal-title h3{
+                padding: 0 15px 0 15px;
+                margin: 0 0 17px 0;
+                font-size: 15px;
+            }
+            .modal-body {
+                font-family: 'Roboto', sans-serif;
+                padding: 20px;
+                font-size: 14px;
+                color: rgb(32, 55, 61);
+            }
+            .modal-body, 
+            .modal-body * {
+                text-align: left !important;
+            }
+
+            .modal-info-box {
+                display: flex;
+                justify-content: space-between;
+                background-color: #f9f9f9;
+                border-radius: 8px;
+                padding: 15px 20px;
+                margin-bottom: 15px;
+                font-size: 14px;
+                
+            }
+
+            .modal-desc {
+                margin: 10px 20px 10px 10px;
+                text-align: left;
+            }
+            .modal-desc h2 ,.modal-allergens h2{
+                margin: 40px 10px 10px 0;
+            }
+            .modal-desc p{
+                padding: 0;
+                font-size: 15px
+            }
+            .modal-allergens {
+                margin: 10px 20px 10px 10px;
+                
+            }
+            .modal-allergens p{
+                margin: 10px 20px 10px 0;
+                padding:0;
+                font-size: 15px;
+            }
+            .modal-allergens-note {
+                margin-bottom: 20px;
+                font-size: 15px;
+            }
+
+            .modal-ingredients {
+                margin: 40px 20px 10px 10px;
+                list-style: none;
+                padding-left: 0;
+            }
+
+            .modal-ingredients ul {
+                margin: 10px 20px 10px 0;
+                font-size: 15px;
+                font-weight: 400;
+            }
+        </style>
+        <link rel="stylesheet" href="../style.css">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SEA Catering</title>
+    </head>
+    <body>
+        <header>
+            <img src="Beige Modern Healthy Catering Logo.png" alt="Logo" class="logo">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="meal-plans.html">Meal Plans</a></li>
+                    <li><a href="subscription.html">Subscription</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section class="meal-plans">
+            <h1>Meal Plans</h1>
+            <p>Explore our diverse meal plans tailored to meet your dietary needs and preferences.</p>
+            <div class="item-catalog">
+                <div class="item-container">
+                    <img src="../photo/food-1.jpeg" alt="Meal Plan 1" class="meal-image item-1"  onclick="showModal()">
+                    <span class="badge veggie">VEGGIE PICKS</span>
+                    <h2>Bacon, Apple & Cheddar Spinach Salad</h2>
+                    <h3>with Dried Cranberries, Walnuts & Honey Dijon Dressing</h3>
+                    <div class="meal-tags two">
+                        <strong>30 min</strong>
+                        <span class="line">|</span>
+                        <span>Veggie</span>
+                        <span class="dot">•</span>
+                        <span>New</span>
+                        <span class="dot">•</span>
+                        <span>Seasonal</span>
+                    </div>
+                </div>
+                <div id="modal" class="modal one">
+                    <div class="modal-content">
+                        <div class="modal-title-wrapper">
+                            <img class="modal-img" src="../photo/food-1.jpeg">
+                            <div class="modal-title">
+                                <h2>Bacon, Apple & Cheddar Spinach Salad</h2>
+                                <h3>with Dried Cranberries, Walnuts & Honey Dijon Dressing</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-box">
+                                <div><strong>Total Time</strong><br>30 min</div>
+                                <div><strong>Calories:</strong><br>720</div>
+                                <div><strong>Difficulty:</strong><br>Medium</div>
+                            </div>
+                            <div class="modal-desc">    
+                                <h2>Descriptions</h2>
+                                <p>
+                                Sweet and mild shishito peppers are the star of these veggie-packed fajitas. They get a nice char with onion and scallions before being tucked into warm tortillas and topped with plenty of cheese, lime crema, and a hit of hot sauce. A side of zesty lime rice completes this easy, flavorful dinner perfect for any night of the week.
+                                </p>
+                            </div>
+                            <div class="modal-allergens">
+                                <h2>Allergens</h2>
+                                <p class="modal-allergens-desc"><strong>Milk • Soy • Wheat</strong></p>
+                                <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                            </div>
+                            <div class="modal-ingredients">
+                                <h2>Ingredients</h>
+                                <ul class="modal-ingredients-list">
+                                    <li>1 unit Onion</li>
+                                    <li>8 ounce Shishito Peppers</li>
+                                    <li>1 unit Lime</li>
+                                    <li>2 unit Scallions</li>
+                                    <li>3 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                    <li>1 tsp Hot Sauce</li>
+                                    <li>1 tbsp Fajita Spice Blend</li>
+                                    <li>½ cup Mexican Cheese Blend <em>(Contains: Milk)</em></li>
+                                    <li>6 unit Flour Tortillas <em>(Contains: Soy, Wheat)</em></li>
+                                    <li>½ cup White Rice</li>
+                                </ul>
+                                <h4>Not included in your delivery</h4>
+                                <ul class="modal-ingredients">
+                                    <li>Salt</li>
+                                    <li>Pepper</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <img src="../photo/food-2.jpeg" alt="Meal Plan 2" class="meal-image item-2">
+                    <span class="badge new">NEW</span>
+                    <h2>Firecracker Meatballs</h2>
+                    <h3>with Roasted Green Beans and Jasmine Rice</h3>
+                    <div class="meal-tags one">
+                        <strong>20 min</strong>
+                        <span class="line">|</span>
+                        <span>Protein Smart</span>
+                        <span class="dot">•</span>
+                        <span>Easy Prep</span>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <img src="../photo/food-3.jpeg" alt="Meal Plan 3" class="meal-image item-3">
+                    <span class="badge veggie">VEGGIE PICKS</span>
+                    <h2>Vegan Spicy Coconut Curry Soup</h2>  
+                    <h3>with Carrots, Spinach & Lime</h3>
+                    <div class="meal-tags one">
+                        <strong>30 min</strong>
+                        <span class="line">|</span>
+                        <span>Vegan</span>
+                        <span class="dot">•</span>
+                        <span>Calorie Smart</span>
+                        <span class="dot">•</span>
+                        <span>Seasonal</span>
+                    </div>
+                </div>
+                <div class="featured-section">
+                    <div class="item-container-big">
+                        <img src="../photo/food-4.jpeg" alt="Meal Plan 4" class="meal-image-big item-4">
+                        <div class="featured-text">
+                            <p class="stars">★★★★★</p>
+                            <h4>Best Recipe 2025</h4>
+                            <p class="quote">We just made this tonight in our home. SO GOOD! We will def be making it again.</p>
+                            <p class="author">– Michael N.</p>
+                        </div>
+                        <span class="badge premium">PREMIUM PICKS</span>
+                        <h2>Honey Thyme Pork Filet</h2>
+                        <h3>with Roasted Potatoes and Green Beans</h3>
+                        <div class="meal-tags featured">   
+                            <strong>35 min</strong>
+                            <span class="line">|</span>
+                            <span>Protein Smart</span>
+                            <span class="dot">•</span>
+                            <span>Carb Smart</span>
+                        </div>
+                    </div>
+                    <div class="small-items-wrapper">
+                        <div class="item-container">
+                            <img src="../photo/food-5.jpeg" alt="Meal Plan 5" class="meal-image item-5">
+                            <span class="badge 20-min">20-MIN MEAL</span>
+                            <h2>Chicken & Vegetable Stir-Fry</h2>   
+                            <h3>with Bell Peppers, Broccoli & Teriyaki Sauce</h3>
+                            <div class="meal-tags one">
+                                <strong>20 min</strong>
+                                <span class="line">|</span>
+                                <span>Protein Smart</span>
+                                <span class="dot">•</span>
+                                <span>Carb Smart</span>
+                                <span class="dot">•</span>
+                                <span>Calorie Smart</span>
+                            </div>
+                        </div>
+                        <div class="item-container">
+                            <img src="../photo/food-6.jpeg" alt="Meal Plan 6" class="meal-image item-6">
+                            <span class="badge 20-min">20-MIN MEAL</span>   
+                            <h2>Quinoa & Black Bean Salad</h2>
+                            <h3>with Avocado, Corn & Lime Dressing</h3>
+                            <div class="meal-tags one">
+                                <strong>20 min</strong>
+                                <span class="line">|</span>
+                                <span>Veggie</span>
+                                <span class="dot">•</span>
+                                <span>Seasonal</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <img src="../photo/food-7.jpeg" alt="Meal Plan 7" class="meal-image item-7">
+                    <span class="badge bestseller">BESTSELLER</span>
+                    <h2>Turmeric Salmon & Miso Butter Noodles</h2>
+                    <h3>with Ginger Scallion Oil, Pickled Cucumber, Cilantro & Peanuts</h3>
+                    <div class="meal-tags two">
+                        <strong>30 min</strong>
+                        <span class="line">|</span>
+                        <span>Protein Smart</span>
+                        <span class="dot">•</span>
+                        <span>Carb Smart</span>
+                        <span class="dot">•</span>
+                        <span>Calorie Smart</span>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <img src="../photo/food-8.jpeg" alt="Meal Plan 8" class="meal-image item-8">
+                    <span class="badge new">NEW</span>
+                    <h2>Sticky Ponzu Salmon Rice Bowls</h2>
+                    <h3>with Cabbage, Carrots, Scallions & Chili Flakes</h3>
+                    <div class="meal-tags one">
+                        <strong>30 min</strong>
+                        <span class="line">|</span>
+                        <span>New</span>
+                        <span class="dot">•</span>
+                        <span>Calorie Smart</span>
+                    </div>
+                </div>
+                <div class="item-container">
+                    <img src="../photo/food-9.jpeg" alt="Meal Plan 9" class="meal-image item-9">
+                    <span class="badge 20-min">20-MIN MEAL</span>          
+                    <h2>Garlicky Steak Pita Wraps</h2>
+                    <h3>with Tomato, Lemony Wedge Salad & Almonds</h3>
+                    <div class="meal-tags one">
+                        <strong>20 min</strong>
+                        <span class="line">|</span>
+                        <span>Quick</span>
+                        <span class="dot">•</span>
+                        <span>Easy Cleanup</span>
+                        <span class="dot">•</span>
+                        <span>Fiber Smart</span>
+                    </div>
+                </div>
+                <div class="featured-section">
+                    <div class="small-items-wrapper">
+                        <div class="item-container">
+                            <img src="../photo/food-10.jpeg" alt="Meal Plan 5" class="meal-image item-5">
+                            <span class="badge 20-min">20-MIN MEAL</span>
+                            <h2>Chicken & Vegetable Stir-Fry</h2>   
+                            <h3>with Bell Peppers, Broccoli & Teriyaki Sauce</h3>
+                            <div class="meal-tags one">
+                                <strong>20 min</strong>
+                                <span class="line">|</span>
+                                <span>Quick</span>
+                                <span class="dot">•</span>
+                                <span>Protein Smart</span>
+                            </div>
+                        </div>
+                        <div class="item-container">
+                            <img src="../photo/food-11.jpeg" alt="Meal Plan 6" class="meal-image item-6">
+                            <span class="badge big-batch-dinner">BIG BATCH DINNER</span>   
+                            <h2>One-Pot Creamy Paprika Chicken Cavatappi</h2>
+                            <h3>with Dark Meat Chicken, Bell Peppers & Onion</h3>
+                            <div class="meal-tags two">
+                                <strong>35 min</strong>
+                                <span class="line">|</span>
+                                <span>Easy Cleanup</span>
+                                <span class="dot">•</span>
+                                <span>Protein Smart</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-container-big">
+                        <img src="../photo/food-12.jpeg" alt="Meal Plan 4" class="meal-image-big item-4">
+                        <div class="featured-text">
+                            <p class="stars">★★★★★</p>
+                            <h4>Best Recipe 2024</h4>
+                            <p class="quote">Made this tonight. Even our picky teen gave it a thumbs up!
+                            <p class="author">– Zoey M.</p>
+                        </div>
+                        <span class="badge premium">PREMIUM PICKS</span>
+                        <h2>Cheesy Curry Naan Flatbread Bar</h2>
+                        <h3>One recipe–endless ways to enjoy!</h3>
+                        <div class="meal-tags featured">
+                            <strong>35 min</strong>
+                            <span class="line">|</span>
+                            <span>Veggie</span>
+                            <span class="dot">•</span>
+                            <span>Family Friendly</span>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <img src="../photo/food-13.jpeg" alt="Meal Plan 7" class="meal-image item-7">
+                        <span class="badge bestseller">BESTSELLER</span>
+                        <h2>Gouda Pork Burgers</h2>
+                        <h3>with Potato Wedges & Caramelized Sriracha Onion</h3>
+                        <div class="meal-tags one">
+                            <strong>30 min</strong>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <img src="../photo/food-14.jpeg" alt="Meal Plan 8" class="meal-image item-8">
+                        <span class="badge new">NEW</span>
+                        <h2>Sticky Ponzu Salmon Rice Bowls</h2>
+                        <h3>with Cabbage, Carrots, Scallions & Chili Flakes</h3>    
+                        <div class="meal-tags one">
+                            <strong>30 min</strong>
+                            <span class="line">|</span>
+                            <span>Veggie</span>
+                            <span class="dot">•</span>
+                            <span>Calorie Smart</span>
+                        </div>
+                    </div>
+                    <div class="item-container">
+                        <img src="../photo/food-15.jpeg" alt="Meal Plan 9" class="meal-image item-9">
+                        <span class="badge new">NEW</span>          
+                        <h2>Creamy Chicken Sausage & Kale Cavatappi</h2>
+                        <h3>with Garlic, Lemon & Parmesan</h3>
+                        <div class="meal-tags two">
+                            <strong>30 min</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer>
+            <p>&copy; 2023 SEA Catering. All rights reserved.</p>
+        </footer>
+        <script>
+            function showModal() {
+                document.getElementById("modal").style.display = "block";
+            }
+            window.onclick = function(event) {
+                const modal = document.getElementById("modal");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+    </html>

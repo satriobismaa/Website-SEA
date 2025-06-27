@@ -1,26 +1,37 @@
-body {
+html, body {
     font-family: Arial, sans-serif;
-    background-color: #f7f7f7;
+    background-color: #F2F4FA;
     color: #000000;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    height: 100%;
+}
+body {
+    display: flex;
+    flex-direction: column; /* Mengatur body menjadi kolom */
+    min-height: 100vh; /* Memastikan body mengisi seluruh tinggi viewport */
+}
+section {
+    flex: 1; /* membuat section mengisi ruang di antara header dan footer */
+}
+header, footer {
+    width: 100%;
 }
 header {
+    max-height: 60px;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #F2F4FA;
     gap: 0;
-    padding: 10px 0 10px 10px;
-    background-color: #fafdfd; /* Warna latar belakang header */
-    max-height: 45px; /* Batasi tinggi header */
-    overflow: hidden; /* Sembunyikan bagian logo yang lebih besar dari header */
     position: sticky;
-    top: 0; /* menempel di bagian atas */
-    z-index: 1000; /* Pastikan header tetap di atas konten lainnya */
+    top: 0; 
+    z-index: 1000; 
 }
+
 .logo {
-    height: 115px; /* atur sesuai kebutuhan */
+    height: 115px;
 }
 nav ul {
     display: flex;
@@ -37,19 +48,17 @@ nav ul li a {
     display: flex;
     align-items: center;
     height: 100%;
-    padding: 50px 25px;
-    color: #272727;
+    padding: 21px 21px;
+    color: rgb(32, 55, 61);
     text-decoration: none;
 }
 nav ul li a:hover{
-    background-color: #E9F3F4;  /* Ganti warna latar belakang saat hover */
+    background-color: #c9c9c9;  /* Ganti warna latar belakang saat hover */
     color: #000000;             /* (Opsional) ubah warna teks saat hover */
 }
 footer {
-    background-color: #fafdfd; /* Warna latar belakang footer */
-    color: #000000; /* Warna teks footer */
+    background-color: rgb(32, 55, 61);
+    color: white;
     text-align: center;
-    position: relative;
-    bottom: 0;
-    width: 100%;
+    padding: 10px 0;
 }
