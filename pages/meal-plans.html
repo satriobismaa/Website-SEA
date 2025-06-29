@@ -258,7 +258,7 @@
                 position: absolute;
                 top: 320px;
                 color: white;
-                background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+                background: linear-gradient(to top, rgba(0, 0, 0, 1)20%, transparent);
                 padding: 10px;
                 width: 780px;
                 font-family: "roboto", sans-serif;
@@ -295,7 +295,7 @@
                 border-radius: 8px;
                 padding: 15px 20px;
                 margin-bottom: 15px;
-                font-size: 14px;
+                font-size: 15px;
                 
             }
 
@@ -303,7 +303,7 @@
                 margin: 10px 20px 10px 10px;
                 text-align: left;
             }
-            .modal-desc h2 ,.modal-allergens h2{
+            .modal-desc h2 ,.modal-allergens h2, .modal-ingredients h2{
                 margin: 40px 10px 10px 0;
             }
             .modal-desc p{
@@ -323,17 +323,62 @@
                 margin-bottom: 20px;
                 font-size: 15px;
             }
-
-            .modal-ingredients {
-                margin: 40px 20px 10px 10px;
+            .modal-ingredients{
+                margin: 10px 20px 50px 10px;
+            }
+            .modal-ingredients-list {
+                margin: 10px 20px 10px 10px;
                 list-style: none;
-                padding-left: 0;
+                padding-left: 10px;
             }
 
-            .modal-ingredients ul {
+            .modal-ingredients-list ul {
                 margin: 10px 20px 10px 0;
+
+            }
+            .modal-ingredients-list li{
                 font-size: 15px;
                 font-weight: 400;
+                margin-bottom: 5px;
+            }
+            .modal-ingredients
+            .modal-ingredients h3 {
+                margin: 0 20px 10px 0;
+            }
+            .nutrition-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: 'Roboto', sans-serif;
+                font-size: 15px;
+                margin-top: 20px;
+                border-radius: 10px;
+                overflow: hidden;
+            }
+
+            .nutrition-table th {
+                text-align: left;
+                padding: 10px 10px;
+                background-color: #f6f6f6;
+                font-weight: bold;
+                font-size: 15px;
+                color: #333;
+            }
+
+            .nutrition-table td {
+                padding: 10px 10px;
+                background-color: #fff;
+                color: #333;
+            }
+            .nutrition-table td:nth-child(even), .nutrition-table th:nth-child(even) {
+                text-align: right !important
+            }
+            .nutrition-table tr:nth-child(even) td {
+                background-color: #f6f6f6;
+            }
+
+            .nutrition-table td:last-child {
+                text-align: right;
+                font-weight: 500;
             }
         </style>
         <link rel="stylesheet" href="../style.css">
@@ -357,28 +402,26 @@
             <h1>Meal Plans</h1>
             <p>Explore our diverse meal plans tailored to meet your dietary needs and preferences.</p>
             <div class="item-catalog">
-                <div class="item-container">
-                    <img src="../photo/food-1.jpeg" alt="Meal Plan 1" class="meal-image item-1"  onclick="showModal()">
-                    <span class="badge veggie">VEGGIE PICKS</span>
-                    <h2>Bacon, Apple & Cheddar Spinach Salad</h2>
-                    <h3>with Dried Cranberries, Walnuts & Honey Dijon Dressing</h3>
-                    <div class="meal-tags two">
-                        <strong>30 min</strong>
+                <div class="item-container" onclick="showModal('one')">
+                    <img src="../photo/food-6.jpeg" alt="Meal Plan 6" class="meal-image item-6" >
+                    <span class="badge 20-min">20-MIN MEAL</span>   
+                    <h2>Cheesy Blistered Shishito Pepper Fajitas</h2>
+                    <h3>with Lime Crema, Hot Sauce & Zesty Rice</h3>
+                    <div class="meal-tags one">
+                        <strong>20 min</strong>
                         <span class="line">|</span>
                         <span>Veggie</span>
-                        <span class="dot">•</span>
-                        <span>New</span>
                         <span class="dot">•</span>
                         <span>Seasonal</span>
                     </div>
                 </div>
-                <div id="modal" class="modal one">
+                <div id="modal one" class="modal">
                     <div class="modal-content">
                         <div class="modal-title-wrapper">
-                            <img class="modal-img" src="../photo/food-1.jpeg">
+                            <img class="modal-img" src="../photo/food-6.jpeg">
                             <div class="modal-title">
-                                <h2>Bacon, Apple & Cheddar Spinach Salad</h2>
-                                <h3>with Dried Cranberries, Walnuts & Honey Dijon Dressing</h3>
+                                <h2>Cheesy Blistered Shishito Pepper Fajitas</h2>
+                                <h3>with Lime Crema, Hot Sauce & Zesty Rice</h3>
                             </div>
                         </div>
                         <div class="modal-body">
@@ -412,16 +455,65 @@
                                     <li>6 unit Flour Tortillas <em>(Contains: Soy, Wheat)</em></li>
                                     <li>½ cup White Rice</li>
                                 </ul>
-                                <h4>Not included in your delivery</h4>
-                                <ul class="modal-ingredients">
+                                <h3>Not included in your delivery</h3>
+                                <ul class="modal-ingredients-list">
                                     <li>Salt</li>
                                     <li>Pepper</li>
+                                    <li>Cooking Oil</li>
                                 </ul>
+                            </div>
+                            <div class="modal-nutrients">
+                                <table class="nutrition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrients</th>
+                                            <th>Per Serving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Calories</td>
+                                            <td>720kcal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fat</td>
+                                            <td>28g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturated Fat</td>
+                                            <td>14g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carbohydrate</td>
+                                            <td>95g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sugar</td>
+                                            <td>11g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dietary Fiber</td>
+                                            <td>5g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>18g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cholesterol</td>
+                                            <td>40mg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodium</td>
+                                            <td>850mg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="item-container">
+                <div class="item-container"  onclick="showModal('two')">
                     <img src="../photo/food-2.jpeg" alt="Meal Plan 2" class="meal-image item-2">
                     <span class="badge new">NEW</span>
                     <h2>Firecracker Meatballs</h2>
@@ -434,8 +526,107 @@
                         <span>Easy Prep</span>
                     </div>
                 </div>
-                <div class="item-container">
-                    <img src="../photo/food-3.jpeg" alt="Meal Plan 3" class="meal-image item-3">
+                <div id="modal two" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-title-wrapper">
+                            <img class="modal-img" src="../photo/food-2.jpeg">
+                            <div class="modal-title">
+                                <h2>Firecracker Meatballs</h2>
+                                <h3>with Roasted Green Beans and Jasmine Rice</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-box">
+                                <div><strong>Total Time</strong><br>20 min</div>
+                                <div><strong>Calories:</strong><br>830</div>
+                                <div><strong>Difficulty:</strong><br>Medium</div>
+                            </div>
+                            <div class="modal-desc">    
+                                <h2>Descriptions</h2>
+                                <p>
+                                These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                </p>
+                            </div>
+                            <div class="modal-allergens">
+                                <h2>Allergens</h2>
+                                <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                            </div>
+                            <div class="modal-ingredients">
+                                <h2>Ingredients</h>
+                                <ul class="modal-ingredients-list">
+                                    <li>2 unit Scallions</li>
+                                    <li>2 tbsp Mayonnaise</li>
+                                    <li>2 tsp Honey</li>
+                                    <li>1 tsp Sriracha</li>
+                                    <li>10 ounce Ground Beef</li>
+                                    <li>6 ounce Green Beans</li>
+                                    <li>1 thumb Ginger</li>
+                                    <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                    <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                    <li>½ cup Jasmine Rice</li>
+                                    <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                </ul>
+                                <h3>Not included in your delivery</h3>
+                                <ul class="modal-ingredients-list">
+                                    <li>Salt</li>
+                                    <li>Pepper</li>
+                                    <li>Cooking Oil</li>
+                                </ul>
+                            </div>
+                            <div class="modal-nutrients">
+                                <table class="nutrition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrients</th>
+                                            <th>Per Serving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Calories</td>
+                                            <td>830kcal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fat</td>
+                                            <td>47g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturated Fat</td>
+                                            <td>14g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carbohydrate</td>
+                                            <td>64g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sugar</td>
+                                            <td>12g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dietary Fiber</td>
+                                            <td>3g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>31g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cholesterol</td>
+                                            <td>140mg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodium</td>
+                                            <td>1980mg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-container" onclick="showModal('three')">
+                    <img src="../photo/food-3.jpeg" alt="Meal Plan 3" class="meal-image item-3" >
                     <span class="badge veggie">VEGGIE PICKS</span>
                     <h2>Vegan Spicy Coconut Curry Soup</h2>  
                     <h3>with Carrots, Spinach & Lime</h3>
@@ -449,8 +640,107 @@
                         <span>Seasonal</span>
                     </div>
                 </div>
+                <div id="modal three" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-title-wrapper">
+                            <img class="modal-img" src="../photo/food-3.jpeg">
+                            <div class="modal-title">
+                                <h2>Vegan Spicy Coconut Curry Soup</h2>
+                                <h3>with Carrots, Spinach & Lime</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-box">
+                                <div><strong>Total Time</strong><br>30 min</div>
+                                <div><strong>Calories:</strong><br>830</div>
+                                <div><strong>Difficulty:</strong><br>Medium</div>
+                            </div>
+                            <div class="modal-desc">    
+                                <h2>Descriptions</h2>
+                                <p>
+                                These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                </p>
+                            </div>
+                            <div class="modal-allergens">
+                                <h2>Allergens</h2>
+                                <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                            </div>
+                            <div class="modal-ingredients">
+                                <h2>Ingredients</h>
+                                <ul class="modal-ingredients-list">
+                                    <li>2 unit Scallions</li>
+                                    <li>2 tbsp Mayonnaise</li>
+                                    <li>2 tsp Honey</li>
+                                    <li>1 tsp Sriracha</li>
+                                    <li>10 ounce Ground Beef</li>
+                                    <li>6 ounce Green Beans</li>
+                                    <li>1 thumb Ginger</li>
+                                    <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                    <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                    <li>½ cup Jasmine Rice</li>
+                                    <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                </ul>
+                                <h3>Not included in your delivery</h3>
+                                <ul class="modal-ingredients-list">
+                                    <li>Salt</li>
+                                    <li>Pepper</li>
+                                    <li>Cooking Oil</li>
+                                </ul>
+                            </div>
+                            <div class="modal-nutrients">
+                                <table class="nutrition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrients</th>
+                                            <th>Per Serving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Calories</td>
+                                            <td>830kcal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fat</td>
+                                            <td>47g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturated Fat</td>
+                                            <td>14g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carbohydrate</td>
+                                            <td>64g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sugar</td>
+                                            <td>12g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dietary Fiber</td>
+                                            <td>3g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>31g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cholesterol</td>
+                                            <td>140mg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodium</td>
+                                            <td>1980mg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="featured-section">
-                    <div class="item-container-big">
+                    <div class="item-container-big" onclick="showModal('four')">
                         <img src="../photo/food-4.jpeg" alt="Meal Plan 4" class="meal-image-big item-4">
                         <div class="featured-text">
                             <p class="stars">★★★★★</p>
@@ -469,8 +759,107 @@
                             <span>Carb Smart</span>
                         </div>
                     </div>
+                    <div id="modal four" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-title-wrapper">
+                                <img class="modal-img" src="../photo/food-4.jpeg">
+                                <div class="modal-title">
+                                    <h2>Honey Thyme Pork Filet</h2>
+                                    <h3>with Roasted Potatoes and Green Beans</h3>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-info-box">
+                                    <div><strong>Total Time</strong><br>30 min</div>
+                                    <div><strong>Calories:</strong><br>830</div>
+                                    <div><strong>Difficulty:</strong><br>Medium</div>
+                                </div>
+                                <div class="modal-desc">    
+                                    <h2>Descriptions</h2>
+                                    <p>
+                                    These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                    </p>
+                                </div>
+                                <div class="modal-allergens">
+                                    <h2>Allergens</h2>
+                                    <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                    <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                </div>
+                                <div class="modal-ingredients">
+                                    <h2>Ingredients</h>
+                                    <ul class="modal-ingredients-list">
+                                        <li>2 unit Scallions</li>
+                                        <li>2 tbsp Mayonnaise</li>
+                                        <li>2 tsp Honey</li>
+                                        <li>1 tsp Sriracha</li>
+                                        <li>10 ounce Ground Beef</li>
+                                        <li>6 ounce Green Beans</li>
+                                        <li>1 thumb Ginger</li>
+                                        <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                        <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                        <li>½ cup Jasmine Rice</li>
+                                        <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                    </ul>
+                                    <h3>Not included in your delivery</h3>
+                                    <ul class="modal-ingredients-list">
+                                        <li>Salt</li>
+                                        <li>Pepper</li>
+                                        <li>Cooking Oil</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-nutrients">
+                                    <table class="nutrition-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nutrients</th>
+                                                <th>Per Serving</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calories</td>
+                                                <td>830kcal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fat</td>
+                                                <td>47g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturated Fat</td>
+                                                <td>14g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carbohydrate</td>
+                                                <td>64g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sugar</td>
+                                                <td>12g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dietary Fiber</td>
+                                                <td>3g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Protein</td>
+                                                <td>31g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cholesterol</td>
+                                                <td>140mg</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sodium</td>
+                                                <td>1980mg</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="small-items-wrapper">
-                        <div class="item-container">
+                        <div class="item-container" onclick="showModal('five')">
                             <img src="../photo/food-5.jpeg" alt="Meal Plan 5" class="meal-image item-5">
                             <span class="badge 20-min">20-MIN MEAL</span>
                             <h2>Chicken & Vegetable Stir-Fry</h2>   
@@ -485,22 +874,222 @@
                                 <span>Calorie Smart</span>
                             </div>
                         </div>
-                        <div class="item-container">
-                            <img src="../photo/food-6.jpeg" alt="Meal Plan 6" class="meal-image item-6">
-                            <span class="badge 20-min">20-MIN MEAL</span>   
-                            <h2>Quinoa & Black Bean Salad</h2>
-                            <h3>with Avocado, Corn & Lime Dressing</h3>
-                            <div class="meal-tags one">
-                                <strong>20 min</strong>
+                        <div id="modal five" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-title-wrapper">
+                                    <img class="modal-img" src="../photo/food-5.jpeg">
+                                    <div class="modal-title">
+                                        <h2>Chicken & Vegetable Stir-Fry</h2>
+                                        <h3>with Bell Peppers, Broccoli & Teriyaki Sauce</h3>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-info-box">
+                                        <div><strong>Total Time</strong><br>30 min</div>
+                                        <div><strong>Calories:</strong><br>830</div>
+                                        <div><strong>Difficulty:</strong><br>Medium</div>
+                                    </div>
+                                    <div class="modal-desc">    
+                                        <h2>Descriptions</h2>
+                                        <p>
+                                        These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                        </p>
+                                    </div>
+                                    <div class="modal-allergens">
+                                        <h2>Allergens</h2>
+                                        <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                        <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                    </div>
+                                    <div class="modal-ingredients">
+                                        <h2>Ingredients</h>
+                                        <ul class="modal-ingredients-list">
+                                            <li>2 unit Scallions</li>
+                                            <li>2 tbsp Mayonnaise</li>
+                                            <li>2 tsp Honey</li>
+                                            <li>1 tsp Sriracha</li>
+                                            <li>10 ounce Ground Beef</li>
+                                            <li>6 ounce Green Beans</li>
+                                            <li>1 thumb Ginger</li>
+                                            <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                            <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                            <li>½ cup Jasmine Rice</li>
+                                            <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                        </ul>
+                                        <h3>Not included in your delivery</h3>
+                                        <ul class="modal-ingredients-list">
+                                            <li>Salt</li>
+                                            <li>Pepper</li>
+                                            <li>Cooking Oil</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-nutrients">
+                                        <table class="nutrition-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nutrients</th>
+                                                    <th>Per Serving</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Calories</td>
+                                                    <td>830kcal</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fat</td>
+                                                    <td>47g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Saturated Fat</td>
+                                                    <td>14g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carbohydrate</td>
+                                                    <td>64g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sugar</td>
+                                                    <td>12g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dietary Fiber</td>
+                                                    <td>3g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Protein</td>
+                                                    <td>31g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cholesterol</td>
+                                                    <td>140mg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sodium</td>
+                                                    <td>1980mg</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-container" onclick="showModal('six')">
+                            <img src="../photo/food-1.jpeg" alt="Meal Plan 1" class="meal-image item-1">
+                            <span class="badge veggie">VEGGIE PICKS</span>
+                            <h2>Bacon, Apple & Cheddar Spinach Salad</h2>
+                            <h3>with Dried Cranberries, Walnuts & Honey Dijon Dressing</h3>
+                            <div class="meal-tags two">
+                                <strong>30 min</strong>
                                 <span class="line">|</span>
                                 <span>Veggie</span>
                                 <span class="dot">•</span>
+                                <span>New</span>
+                                <span class="dot">•</span>
                                 <span>Seasonal</span>
                             </div>
-                        </div>
+                        </div>   
+                        <div id="modal six" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-title-wrapper">
+                                    <img class="modal-img" src="../photo/food-1.jpeg">
+                                    <div class="modal-title">
+                                        <h2>Bacon, Apple & Cheddar Spinach Salad</h2>
+                                        <h3>with Dried Cranberries, Walnuts & Honey Dijon Dressing</h3>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-info-box">
+                                        <div><strong>Total Time</strong><br>30 min</div>
+                                        <div><strong>Calories:</strong><br>830</div>
+                                        <div><strong>Difficulty:</strong><br>Medium</div>
+                                    </div>
+                                    <div class="modal-desc">    
+                                        <h2>Descriptions</h2>
+                                        <p>
+                                        These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                        </p>
+                                    </div>
+                                    <div class="modal-allergens">
+                                        <h2>Allergens</h2>
+                                        <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                        <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                    </div>
+                                    <div class="modal-ingredients">
+                                        <h2>Ingredients</h>
+                                        <ul class="modal-ingredients-list">
+                                            <li>2 unit Scallions</li>
+                                            <li>2 tbsp Mayonnaise</li>
+                                            <li>2 tsp Honey</li>
+                                            <li>1 tsp Sriracha</li>
+                                            <li>10 ounce Ground Beef</li>
+                                            <li>6 ounce Green Beans</li>
+                                            <li>1 thumb Ginger</li>
+                                            <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                            <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                            <li>½ cup Jasmine Rice</li>
+                                            <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                        </ul>
+                                        <h3>Not included in your delivery</h3>
+                                        <ul class="modal-ingredients-list">
+                                            <li>Salt</li>
+                                            <li>Pepper</li>
+                                            <li>Cooking Oil</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-nutrients">
+                                        <table class="nutrition-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nutrients</th>
+                                                    <th>Per Serving</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Calories</td>
+                                                    <td>830kcal</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fat</td>
+                                                    <td>47g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Saturated Fat</td>
+                                                    <td>14g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carbohydrate</td>
+                                                    <td>64g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sugar</td>
+                                                    <td>12g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dietary Fiber</td>
+                                                    <td>3g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Protein</td>
+                                                    <td>31g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cholesterol</td>
+                                                    <td>140mg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sodium</td>
+                                                    <td>1980mg</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="item-container">
+                <div class="item-container" onclick="showModal('seven')">
                     <img src="../photo/food-7.jpeg" alt="Meal Plan 7" class="meal-image item-7">
                     <span class="badge bestseller">BESTSELLER</span>
                     <h2>Turmeric Salmon & Miso Butter Noodles</h2>
@@ -515,7 +1104,106 @@
                         <span>Calorie Smart</span>
                     </div>
                 </div>
-                <div class="item-container">
+                <div id="modal seven" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-title-wrapper">
+                            <img class="modal-img" src="../photo/food-7.jpeg">
+                            <div class="modal-title">
+                                <h2>Turmeric Salmon & Miso Butter Noodles</h2>
+                                <h3>with Ginger Scallion Oil, Pickled Cucumber, Cilantro & Peanuts</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-box">
+                                <div><strong>Total Time</strong><br>30 min</div>
+                                <div><strong>Calories:</strong><br>830</div>
+                                <div><strong>Difficulty:</strong><br>Medium</div>
+                            </div>
+                            <div class="modal-desc">    
+                                <h2>Descriptions</h2>
+                                <p>
+                                These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                </p>
+                            </div>
+                            <div class="modal-allergens">
+                                <h2>Allergens</h2>
+                                <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                            </div>
+                            <div class="modal-ingredients">
+                                <h2>Ingredients</h>
+                                <ul class="modal-ingredients-list">
+                                    <li>2 unit Scallions</li>
+                                    <li>2 tbsp Mayonnaise</li>
+                                    <li>2 tsp Honey</li>
+                                    <li>1 tsp Sriracha</li>
+                                    <li>10 ounce Ground Beef</li>
+                                    <li>6 ounce Green Beans</li>
+                                    <li>1 thumb Ginger</li>
+                                    <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                    <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                    <li>½ cup Jasmine Rice</li>
+                                    <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                </ul>
+                                <h3>Not included in your delivery</h3>
+                                <ul class="modal-ingredients-list">
+                                    <li>Salt</li>
+                                    <li>Pepper</li>
+                                    <li>Cooking Oil</li>
+                                </ul>
+                            </div>
+                            <div class="modal-nutrients">
+                                <table class="nutrition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrients</th>
+                                            <th>Per Serving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Calories</td>
+                                            <td>830kcal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fat</td>
+                                            <td>47g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturated Fat</td>
+                                            <td>14g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carbohydrate</td>
+                                            <td>64g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sugar</td>
+                                            <td>12g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dietary Fiber</td>
+                                            <td>3g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>31g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cholesterol</td>
+                                            <td>140mg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodium</td>
+                                            <td>1980mg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                <div class="item-container" onclick="showModal('eight')">
                     <img src="../photo/food-8.jpeg" alt="Meal Plan 8" class="meal-image item-8">
                     <span class="badge new">NEW</span>
                     <h2>Sticky Ponzu Salmon Rice Bowls</h2>
@@ -528,7 +1216,106 @@
                         <span>Calorie Smart</span>
                     </div>
                 </div>
-                <div class="item-container">
+                <div id="modal eight" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-title-wrapper">
+                            <img class="modal-img" src="../photo/food-8.jpeg">
+                            <div class="modal-title">
+                                <h2>Sticky Ponzu Salmon Rice Bowls</h2>
+                                <h3>with Cabbage, Carrots, Scallions & Chili Flakes</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-box">
+                                <div><strong>Total Time</strong><br>30 min</div>
+                                <div><strong>Calories:</strong><br>830</div>
+                                <div><strong>Difficulty:</strong><br>Medium</div>
+                            </div>
+                            <div class="modal-desc">    
+                                <h2>Descriptions</h2>
+                                <p>
+                                These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                </p>
+                            </div>
+                            <div class="modal-allergens">
+                                <h2>Allergens</h2>
+                                <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                            </div>
+                            <div class="modal-ingredients">
+                                <h2>Ingredients</h>
+                                <ul class="modal-ingredients-list">
+                                    <li>2 unit Scallions</li>
+                                    <li>2 tbsp Mayonnaise</li>
+                                    <li>2 tsp Honey</li>
+                                    <li>1 tsp Sriracha</li>
+                                    <li>10 ounce Ground Beef</li>
+                                    <li>6 ounce Green Beans</li>
+                                    <li>1 thumb Ginger</li>
+                                    <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                    <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                    <li>½ cup Jasmine Rice</li>
+                                    <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                </ul>
+                                <h3>Not included in your delivery</h3>
+                                <ul class="modal-ingredients-list">
+                                    <li>Salt</li>
+                                    <li>Pepper</li>
+                                    <li>Cooking Oil</li>
+                                </ul>
+                            </div>
+                            <div class="modal-nutrients">
+                                <table class="nutrition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrients</th>
+                                            <th>Per Serving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Calories</td>
+                                            <td>830kcal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fat</td>
+                                            <td>47g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturated Fat</td>
+                                            <td>14g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carbohydrate</td>
+                                            <td>64g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sugar</td>
+                                            <td>12g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dietary Fiber</td>
+                                            <td>3g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>31g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cholesterol</td>
+                                            <td>140mg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodium</td>
+                                            <td>1980mg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                <div class="item-container" onclick="showModal('nine')">
                     <img src="../photo/food-9.jpeg" alt="Meal Plan 9" class="meal-image item-9">
                     <span class="badge 20-min">20-MIN MEAL</span>          
                     <h2>Garlicky Steak Pita Wraps</h2>
@@ -543,9 +1330,108 @@
                         <span>Fiber Smart</span>
                     </div>
                 </div>
+                <div id="modal nine" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-title-wrapper">
+                            <img class="modal-img" src="../photo/food-9.jpeg">
+                            <div class="modal-title">
+                                <h2>Garlicky Steak Pita Wraps</h2>
+                                <h3>with Tomato, Lemony Wedge Salad & Almonds</h3>
+                            </div>
+                        </div>
+                        <div class="modal-body">
+                            <div class="modal-info-box">
+                                <div><strong>Total Time</strong><br>30 min</div>
+                                <div><strong>Calories:</strong><br>830</div>
+                                <div><strong>Difficulty:</strong><br>Medium</div>
+                            </div>
+                            <div class="modal-desc">    
+                                <h2>Descriptions</h2>
+                                <p>
+                                These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                </p>
+                            </div>
+                            <div class="modal-allergens">
+                                <h2>Allergens</h2>
+                                <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                            </div>
+                            <div class="modal-ingredients">
+                                <h2>Ingredients</h>
+                                <ul class="modal-ingredients-list">
+                                    <li>2 unit Scallions</li>
+                                    <li>2 tbsp Mayonnaise</li>
+                                    <li>2 tsp Honey</li>
+                                    <li>1 tsp Sriracha</li>
+                                    <li>10 ounce Ground Beef</li>
+                                    <li>6 ounce Green Beans</li>
+                                    <li>1 thumb Ginger</li>
+                                    <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                    <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                    <li>½ cup Jasmine Rice</li>
+                                    <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                </ul>
+                                <h3>Not included in your delivery</h3>
+                                <ul class="modal-ingredients-list">
+                                    <li>Salt</li>
+                                    <li>Pepper</li>
+                                    <li>Cooking Oil</li>
+                                </ul>
+                            </div>
+                            <div class="modal-nutrients">
+                                <table class="nutrition-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Nutrients</th>
+                                            <th>Per Serving</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Calories</td>
+                                            <td>830kcal</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fat</td>
+                                            <td>47g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Saturated Fat</td>
+                                            <td>14g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Carbohydrate</td>
+                                            <td>64g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sugar</td>
+                                            <td>12g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Dietary Fiber</td>
+                                            <td>3g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Protein</td>
+                                            <td>31g</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cholesterol</td>
+                                            <td>140mg</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Sodium</td>
+                                            <td>1980mg</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
                 <div class="featured-section">
                     <div class="small-items-wrapper">
-                        <div class="item-container">
+                        <div class="item-container" onclick="showModal('ten')">
                             <img src="../photo/food-10.jpeg" alt="Meal Plan 5" class="meal-image item-5">
                             <span class="badge 20-min">20-MIN MEAL</span>
                             <h2>Chicken & Vegetable Stir-Fry</h2>   
@@ -558,7 +1444,106 @@
                                 <span>Protein Smart</span>
                             </div>
                         </div>
-                        <div class="item-container">
+                        <div id="modal ten" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-title-wrapper">
+                                    <img class="modal-img" src="../photo/food-10.jpeg">
+                                    <div class="modal-title">
+                                        <h2>Chicken & Vegetable Stir-Fry</h2>
+                                        <h3>with Bell Peppers, Broccoli & Teriyaki Sauce</h3>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-info-box">
+                                        <div><strong>Total Time</strong><br>30 min</div>
+                                        <div><strong>Calories:</strong><br>830</div>
+                                        <div><strong>Difficulty:</strong><br>Medium</div>
+                                    </div>
+                                    <div class="modal-desc">    
+                                        <h2>Descriptions</h2>
+                                        <p>
+                                        These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                        </p>
+                                    </div>
+                                    <div class="modal-allergens">
+                                        <h2>Allergens</h2>
+                                        <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                        <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                    </div>
+                                    <div class="modal-ingredients">
+                                        <h2>Ingredients</h>
+                                        <ul class="modal-ingredients-list">
+                                            <li>2 unit Scallions</li>
+                                            <li>2 tbsp Mayonnaise</li>
+                                            <li>2 tsp Honey</li>
+                                            <li>1 tsp Sriracha</li>
+                                            <li>10 ounce Ground Beef</li>
+                                            <li>6 ounce Green Beans</li>
+                                            <li>1 thumb Ginger</li>
+                                            <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                            <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                            <li>½ cup Jasmine Rice</li>
+                                            <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                        </ul>
+                                        <h3>Not included in your delivery</h3>
+                                        <ul class="modal-ingredients-list">
+                                            <li>Salt</li>
+                                            <li>Pepper</li>
+                                            <li>Cooking Oil</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-nutrients">
+                                        <table class="nutrition-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nutrients</th>
+                                                    <th>Per Serving</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Calories</td>
+                                                    <td>830kcal</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fat</td>
+                                                    <td>47g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Saturated Fat</td>
+                                                    <td>14g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carbohydrate</td>
+                                                    <td>64g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sugar</td>
+                                                    <td>12g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dietary Fiber</td>
+                                                    <td>3g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Protein</td>
+                                                    <td>31g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cholesterol</td>
+                                                    <td>140mg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sodium</td>
+                                                    <td>1980mg</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item-container" onclick="showModal('eleven')">
                             <img src="../photo/food-11.jpeg" alt="Meal Plan 6" class="meal-image item-6">
                             <span class="badge big-batch-dinner">BIG BATCH DINNER</span>   
                             <h2>One-Pot Creamy Paprika Chicken Cavatappi</h2>
@@ -571,8 +1556,107 @@
                                 <span>Protein Smart</span>
                             </div>
                         </div>
+                        <div id="modal eleven" class="modal">
+                            <div class="modal-content">
+                                <div class="modal-title-wrapper">
+                                    <img class="modal-img" src="../photo/food-11.jpeg">
+                                    <div class="modal-title">
+                                        <h2>One-Pot Creamy Paprika Chicken Cavatappi</h2>
+                                        <h3>with Dark Meat Chicken, Bell Peppers & Onion</h3>
+                                    </div>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="modal-info-box">
+                                        <div><strong>Total Time</strong><br>30 min</div>
+                                        <div><strong>Calories:</strong><br>830</div>
+                                        <div><strong>Difficulty:</strong><br>Medium</div>
+                                    </div>
+                                    <div class="modal-desc">    
+                                        <h2>Descriptions</h2>
+                                        <p>
+                                        These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                        </p>
+                                    </div>
+                                    <div class="modal-allergens">
+                                        <h2>Allergens</h2>
+                                        <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                        <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                    </div>
+                                    <div class="modal-ingredients">
+                                        <h2>Ingredients</h>
+                                        <ul class="modal-ingredients-list">
+                                            <li>2 unit Scallions</li>
+                                            <li>2 tbsp Mayonnaise</li>
+                                            <li>2 tsp Honey</li>
+                                            <li>1 tsp Sriracha</li>
+                                            <li>10 ounce Ground Beef</li>
+                                            <li>6 ounce Green Beans</li>
+                                            <li>1 thumb Ginger</li>
+                                            <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                            <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                            <li>½ cup Jasmine Rice</li>
+                                            <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                        </ul>
+                                        <h3>Not included in your delivery</h3>
+                                        <ul class="modal-ingredients-list">
+                                            <li>Salt</li>
+                                            <li>Pepper</li>
+                                            <li>Cooking Oil</li>
+                                        </ul>
+                                    </div>
+                                    <div class="modal-nutrients">
+                                        <table class="nutrition-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Nutrients</th>
+                                                    <th>Per Serving</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Calories</td>
+                                                    <td>830kcal</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Fat</td>
+                                                    <td>47g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Saturated Fat</td>
+                                                    <td>14g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Carbohydrate</td>
+                                                    <td>64g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sugar</td>
+                                                    <td>12g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Dietary Fiber</td>
+                                                    <td>3g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Protein</td>
+                                                    <td>31g</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Cholesterol</td>
+                                                    <td>140mg</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sodium</td>
+                                                    <td>1980mg</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-container-big">
+                    <div class="item-container-big" onclick="showModal('twelve')">
                         <img src="../photo/food-12.jpeg" alt="Meal Plan 4" class="meal-image-big item-4">
                         <div class="featured-text">
                             <p class="stars">★★★★★</p>
@@ -591,7 +1675,106 @@
                             <span>Family Friendly</span>
                         </div>
                     </div>
-                    <div class="item-container">
+                    <div id="modal twelve" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-title-wrapper">
+                                <img class="modal-img" src="../photo/food-12.jpeg">
+                                <div class="modal-title">
+                                    <h2>Cheesy Curry Naan Flatbread Bar</h2>
+                                    <h3>wOne recipe–endless ways to enjoy!</h3>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-info-box">
+                                    <div><strong>Total Time</strong><br>30 min</div>
+                                    <div><strong>Calories:</strong><br>830</div>
+                                    <div><strong>Difficulty:</strong><br>Medium</div>
+                                </div>
+                                <div class="modal-desc">    
+                                    <h2>Descriptions</h2>
+                                    <p>
+                                    These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                    </p>
+                                </div>
+                                <div class="modal-allergens">
+                                    <h2>Allergens</h2>
+                                    <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                    <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                </div>
+                                <div class="modal-ingredients">
+                                    <h2>Ingredients</h>
+                                    <ul class="modal-ingredients-list">
+                                        <li>2 unit Scallions</li>
+                                        <li>2 tbsp Mayonnaise</li>
+                                        <li>2 tsp Honey</li>
+                                        <li>1 tsp Sriracha</li>
+                                        <li>10 ounce Ground Beef</li>
+                                        <li>6 ounce Green Beans</li>
+                                        <li>1 thumb Ginger</li>
+                                        <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                        <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                        <li>½ cup Jasmine Rice</li>
+                                        <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                    </ul>
+                                    <h3>Not included in your delivery</h3>
+                                    <ul class="modal-ingredients-list">
+                                        <li>Salt</li>
+                                        <li>Pepper</li>
+                                        <li>Cooking Oil</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-nutrients">
+                                    <table class="nutrition-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nutrients</th>
+                                                <th>Per Serving</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calories</td>
+                                                <td>830kcal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fat</td>
+                                                <td>47g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturated Fat</td>
+                                                <td>14g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carbohydrate</td>
+                                                <td>64g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sugar</td>
+                                                <td>12g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dietary Fiber</td>
+                                                <td>3g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Protein</td>
+                                                <td>31g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cholesterol</td>
+                                                <td>140mg</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sodium</td>
+                                                <td>1980mg</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="item-container" onclick="showModal('thirteen')">
                         <img src="../photo/food-13.jpeg" alt="Meal Plan 7" class="meal-image item-7">
                         <span class="badge bestseller">BESTSELLER</span>
                         <h2>Gouda Pork Burgers</h2>
@@ -600,7 +1783,106 @@
                             <strong>30 min</strong>
                         </div>
                     </div>
-                    <div class="item-container">
+                    <div id="modal thirteen" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-title-wrapper">
+                                <img class="modal-img" src="../photo/food-13.jpeg">
+                                <div class="modal-title">
+                                    <h2>Gouda Pork Burgers</h2>
+                                    <h3>with Potato Wedges & Caramelized Sriracha Onion</h3>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-info-box">
+                                    <div><strong>Total Time</strong><br>30 min</div>
+                                    <div><strong>Calories:</strong><br>830</div>
+                                    <div><strong>Difficulty:</strong><br>Medium</div>
+                                </div>
+                                <div class="modal-desc">    
+                                    <h2>Descriptions</h2>
+                                    <p>
+                                    These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                    </p>
+                                </div>
+                                <div class="modal-allergens">
+                                    <h2>Allergens</h2>
+                                    <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                    <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                </div>
+                                <div class="modal-ingredients">
+                                    <h2>Ingredients</h>
+                                    <ul class="modal-ingredients-list">
+                                        <li>2 unit Scallions</li>
+                                        <li>2 tbsp Mayonnaise</li>
+                                        <li>2 tsp Honey</li>
+                                        <li>1 tsp Sriracha</li>
+                                        <li>10 ounce Ground Beef</li>
+                                        <li>6 ounce Green Beans</li>
+                                        <li>1 thumb Ginger</li>
+                                        <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                        <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                        <li>½ cup Jasmine Rice</li>
+                                        <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                    </ul>
+                                    <h3>Not included in your delivery</h3>
+                                    <ul class="modal-ingredients-list">
+                                        <li>Salt</li>
+                                        <li>Pepper</li>
+                                        <li>Cooking Oil</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-nutrients">
+                                    <table class="nutrition-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nutrients</th>
+                                                <th>Per Serving</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calories</td>
+                                                <td>830kcal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fat</td>
+                                                <td>47g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturated Fat</td>
+                                                <td>14g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carbohydrate</td>
+                                                <td>64g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sugar</td>
+                                                <td>12g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dietary Fiber</td>
+                                                <td>3g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Protein</td>
+                                                <td>31g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cholesterol</td>
+                                                <td>140mg</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sodium</td>
+                                                <td>1980mg</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="item-container" onclick="showModal('fourteen')">
                         <img src="../photo/food-14.jpeg" alt="Meal Plan 8" class="meal-image item-8">
                         <span class="badge new">NEW</span>
                         <h2>Sticky Ponzu Salmon Rice Bowls</h2>
@@ -613,7 +1895,106 @@
                             <span>Calorie Smart</span>
                         </div>
                     </div>
-                    <div class="item-container">
+                    <div id="modal fourteen" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-title-wrapper">
+                                <img class="modal-img" src="../photo/food-14.jpeg">
+                                <div class="modal-title">
+                                    <h2>Sticky Ponzu Salmon Rice Bowls</h2>
+                                    <h3>with Cabbage, Carrots, Scallions & Chili Flakes</h3>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-info-box">
+                                    <div><strong>Total Time</strong><br>30 min</div>
+                                    <div><strong>Calories:</strong><br>830</div>
+                                    <div><strong>Difficulty:</strong><br>Medium</div>
+                                </div>
+                                <div class="modal-desc">    
+                                    <h2>Descriptions</h2>
+                                    <p>
+                                    These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                    </p>
+                                </div>
+                                <div class="modal-allergens">
+                                    <h2>Allergens</h2>
+                                    <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                    <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                </div>
+                                <div class="modal-ingredients">
+                                    <h2>Ingredients</h>
+                                    <ul class="modal-ingredients-list">
+                                        <li>2 unit Scallions</li>
+                                        <li>2 tbsp Mayonnaise</li>
+                                        <li>2 tsp Honey</li>
+                                        <li>1 tsp Sriracha</li>
+                                        <li>10 ounce Ground Beef</li>
+                                        <li>6 ounce Green Beans</li>
+                                        <li>1 thumb Ginger</li>
+                                        <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                        <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                        <li>½ cup Jasmine Rice</li>
+                                        <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                    </ul>
+                                    <h3>Not included in your delivery</h3>
+                                    <ul class="modal-ingredients-list">
+                                        <li>Salt</li>
+                                        <li>Pepper</li>
+                                        <li>Cooking Oil</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-nutrients">
+                                    <table class="nutrition-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nutrients</th>
+                                                <th>Per Serving</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calories</td>
+                                                <td>830kcal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fat</td>
+                                                <td>47g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturated Fat</td>
+                                                <td>14g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carbohydrate</td>
+                                                <td>64g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sugar</td>
+                                                <td>12g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dietary Fiber</td>
+                                                <td>3g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Protein</td>
+                                                <td>31g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cholesterol</td>
+                                                <td>140mg</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sodium</td>
+                                                <td>1980mg</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
+                    <div class="item-container" onclick="showModal('fifteen')">
                         <img src="../photo/food-15.jpeg" alt="Meal Plan 9" class="meal-image item-9">
                         <span class="badge new">NEW</span>          
                         <h2>Creamy Chicken Sausage & Kale Cavatappi</h2>
@@ -622,6 +2003,105 @@
                             <strong>30 min</strong>
                         </div>
                     </div>
+                    <div id="modal fifteen" class="modal">
+                        <div class="modal-content">
+                            <div class="modal-title-wrapper">
+                                <img class="modal-img" src="../photo/food-15.jpeg">
+                                <div class="modal-title">
+                                    <h2>Creamy Chicken Sausage & Kale Cavatappi</h2>
+                                    <h3>with Garlic, Lemon & Parmesan</h3>
+                                </div>
+                            </div>
+                            <div class="modal-body">
+                                <div class="modal-info-box">
+                                    <div><strong>Total Time</strong><br>30 min</div>
+                                    <div><strong>Calories:</strong><br>830</div>
+                                    <div><strong>Difficulty:</strong><br>Medium</div>
+                                </div>
+                                <div class="modal-desc">    
+                                    <h2>Descriptions</h2>
+                                    <p>
+                                    These meatballs are a game-changer thanks to firecracker sauce—a creamy, spicy, sweet, and savory sauce that’s so good, it’ll make your taste buds explode! Once the meatballs are baked, they’re tossed in the magical condiment, then plated atop rice along with crispy roasted green beans. Don’t be surprised when you find yourself swiping up every last drop.
+                                    </p>
+                                </div>
+                                <div class="modal-allergens">
+                                    <h2>Allergens</h2>
+                                    <p class="modal-allergens-desc"><strong>Eggs • Milk • Soy • Wheat</strong></p>
+                                    <p class="modal-allergens-note">Produced in a facility that processes milk, eggs, fish, shellfish, tree nuts, peanuts, wheat, and soybean.</p>        
+                                </div>
+                                <div class="modal-ingredients">
+                                    <h2>Ingredients</h>
+                                    <ul class="modal-ingredients-list">
+                                        <li>2 unit Scallions</li>
+                                        <li>2 tbsp Mayonnaise</li>
+                                        <li>2 tsp Honey</li>
+                                        <li>1 tsp Sriracha</li>
+                                        <li>10 ounce Ground Beef</li>
+                                        <li>6 ounce Green Beans</li>
+                                        <li>1 thumb Ginger</li>
+                                        <li>1.5 tbsp Sour Cream <em>(Contains: Milk)</em></li>
+                                        <li>2 tbsp Soy Sauce <em>(Contains: Soy, Wheat)</em></li>
+                                        <li>½ cup Jasmine Rice</li>
+                                        <li>½ cup Panko Breadcrumbs <em>(Contains: Wheat)</em></li>
+                                    </ul>
+                                    <h3>Not included in your delivery</h3>
+                                    <ul class="modal-ingredients-list">
+                                        <li>Salt</li>
+                                        <li>Pepper</li>
+                                        <li>Cooking Oil</li>
+                                    </ul>
+                                </div>
+                                <div class="modal-nutrients">
+                                    <table class="nutrition-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Nutrients</th>
+                                                <th>Per Serving</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Calories</td>
+                                                <td>830kcal</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Fat</td>
+                                                <td>47g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saturated Fat</td>
+                                                <td>14g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Carbohydrate</td>
+                                                <td>64g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sugar</td>
+                                                <td>12g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dietary Fiber</td>
+                                                <td>3g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Protein</td>
+                                                <td>31g</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Cholesterol</td>
+                                                <td>140mg</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Sodium</td>
+                                                <td>1980mg</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                      </div>
                 </div>
             </div>
         </section>
@@ -629,11 +2109,14 @@
             <p>&copy; 2023 SEA Catering. All rights reserved.</p>
         </footer>
         <script>
-            function showModal() {
-                document.getElementById("modal").style.display = "block";
+            let currentModalIndex = null;
+
+            function showModal(index) {
+                currentModalIndex = index
+                document.getElementById("modal " + index).style.display = "block";
             }
             window.onclick = function(event) {
-                const modal = document.getElementById("modal");
+                const modal = document.getElementById("modal " + currentModalIndex);
                 if (event.target === modal) {
                     modal.style.display = "none";
                 }
